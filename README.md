@@ -1,7 +1,7 @@
 
 #Cool Youtube Thingy
 Youtube dynamic comment experience
-<br/>Project for Hack Rick 2016.
+<br/>Project for Hack Rice 2016.
 ##Build
 
 Note
@@ -9,7 +9,7 @@ Note
 
 Before running this project, create a secrets.json file to use your API key. It will take the format:
 
-    secret = '[{"api_key" : "YOUR_API_KEY"}]'
+    secret = '{"api_key" : "YOUR_API_KEY"}'
 
 Instructions [here][1] for creating API keys.
 
