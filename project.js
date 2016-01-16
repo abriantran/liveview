@@ -2,8 +2,11 @@ console.log('project.js loaded');
 var videoId = 'sGbxmsDFVnE'
 
 function getComments() {
-    gapi.client.youtube.commentThreads.list({'part': 'snippet', 'videoId': videoId, 'maxResults': 1}).then(function(resp) {
+    gapi.client.youtube.commentThreads.list({'part': 'snippet', 'videoId': videoId, 'pageToken': 'Cg0Qq72RvbevygIgACgBEhQIABCAsviVtK_KAhjomNjP5qzKAhgCIGQo4bPN85SHv9L-AQ==', 'maxResults': 100}).then(function(resp) {
         console.log(resp.result);
+        resp.result.items.forEach(function(entry) {
+            console.log(entry.snippet.topLevelComment.snippet.textDisplay);
+        });
     }, function(reason) {
         console.log('Error: ' + reason.result.error.message);
 });
