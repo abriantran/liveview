@@ -13,7 +13,6 @@ Instructions [here][1] for creating API keys.
 Start server with
 
     python -m SimpleHTTPServer
-.
 
 Navigate to [http://localhost:8000/index.html](http://localhost:8000/index.html).
 
