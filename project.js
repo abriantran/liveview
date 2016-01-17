@@ -38,9 +38,12 @@ function filterComments(commentArray) {
             var comment = entry.snippet.topLevelComment.snippet.textDisplay;
             var isMatch = comment.match(/t=\d+m\d\ds/);
             if (isMatch) {
+                var time = isMatch[0];
+                var timeSplit = time.split(/\D+/);
+                var seconds = parseInt(timeSplit[1]) * 60 + parseInt(timeSplit[2]);
                 var parsedComment = {
                   time: isMatch[0],
-                  text: isMatch.input
+                  seconds: seconds
                 };
                 //console.log(parsedComment);
                 parsedComments.push(parsedComment);
