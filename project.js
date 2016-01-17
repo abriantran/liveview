@@ -2,7 +2,7 @@ console.log('project.js loaded');
 var videoId = 'sGbxmsDFVnE'
 var i = 0;
 var j = 0;
-var stop = 3;
+var stop = 10;
 var parsedComments = [];
 
 function displayComments() {
@@ -12,6 +12,7 @@ function displayComments() {
       parsedComments.forEach( function(comment) {
         if (time == comment.seconds) {
           console.log(comment.text);
+          document.write(comment.text + '<br>');
         }
       });
   }, 1000);
