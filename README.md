@@ -1,5 +1,5 @@
 
-#Cool Youtube Thingy
+![logo](http://s21.postimg.org/ajdcgxuqv/logo_2_01.png)
 Youtube dynamic comment experience
 <br/>Project for Hack Rice 2016.
 ##Build
