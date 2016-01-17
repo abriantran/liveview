@@ -1,19 +1,51 @@
 console.log('project.js loaded');
 var videoId = 'sGbxmsDFVnE'
+var i = 0;
+var stop = 3;
+var parsedComments = [];
 
-function getComments() {
-    gapi.client.youtube.commentThreads.list({'part': 'snippet', 'videoId': videoId, 'maxResults': 100}).then(function(resp) {
-        //console.log(resp.result);
-        resp.result.items.forEach(function(entry) {
-            //console.log(entry.snippet.topLevelComment.snippet.textDisplay);
-            var comment = entry.snippet.topLevelComment.snippet.textDisplay;
-            if (comment.match(/t=\d+m\d\ds/)) {
-                console.log(comment);
-            }
-        });
+function getComments(nextPage) {
+    gapi.client.youtube.commentThreads.list({'part': 'snippet', 'videoId': videoId, 'maxResults': 100, 'pageToken': nextPage}).then(function(resp) {
+        filterComments(resp.result.items);
+
+        i = 0;
+        getCommentsRepeated(resp.result.nextPageToken);
     }, function(reason) {
         console.log('Error: ' + reason.result.error.message);
 });
+
+}
+
+function getCommentsRepeated(nextPage) {
+    if (i < stop) {
+    gapi.client.youtube.commentThreads.list({'part': 'snippet', 'videoId': videoId, 'maxResults': 100, 'pageToken': nextPage}).then(function(resp) {
+        filterComments(resp.result.items);
+        
+        i++;
+        getCommentsRepeated(resp.result.nextPageToken);
+    }, function(reason) {
+        console.log('Error: ' + reason.result.error.message);
+});
+
+} else {
+  console.log(parsedComments);
+}
+}
+
+function filterComments(commentArray) {
+        commentArray.forEach(function(entry) {
+            //console.log(entry.snippet.topLevelComment.snippet.textDisplay);
+            var comment = entry.snippet.topLevelComment.snippet.textDisplay;
+            var isMatch = comment.match(/t=\d+m\d\ds/);
+            if (isMatch) {
+                var parsedComment = {
+                  time: isMatch[0],
+                  text: isMatch.input
+                };
+                //console.log(parsedComment);
+                parsedComments.push(parsedComment);
+            }
+        });
 }
 
 function OnLoadCallback() {
