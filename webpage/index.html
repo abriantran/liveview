@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Animated comments on embedded youtube video</title>
+    
+    
+    
+    <link rel='stylesheet prefetch' href='http://daneden.github.io/animate.css/animate.min.css'>
+
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    
+<h1>Youtube video with "real time" comments</h1>
+
+<p class="visuallyhidden">Video trailer of Star Wars 7.</p>
+
+<div id="wrapper">
+    <div id="player"></div>
+
+  
+<div id="annotations">
+  <p data-starttime="6"
+     data-stoptime="11"
+     data-positionTop="200"
+     data-positionHorizontalCentre="-180">
+      This is a demo of how to make annotations. Does not work with video in full screen mode.
+  </p>
+  
+  <p class="thought"
+     data-starttime="13"
+     data-stoptime="14.5"
+     data-positionTop="30"
+     data-positionHorizontalCentre="60">
+      Yuk, a client, I hate them.
+  </p>
+  
+  <p class="roundbox"
+     data-starttime="24"
+     data-stoptime="27"
+     data-effectIn="bounceInDown"
+     data-effectOut="bounceOutUp"
+     data-positionTop="120"
+     data-positionHorizontalCentre="100">
+      Lying down is very old fashioned. It's very Freudian.
+  </p>
+
+  <p class="notification"
+     data-starttime="35"
+     data-bullshitfactor="This is an annotation."
+     data-alertType="info">
+  </p> 
+
+  <p class="cover"
+     data-starttime="36"
+     data-stoptime="39"
+     data-effectIn="fadeIn"
+     data-effectOut="fadeOut">
+      Only five dollars!!
+  </p>
+  
+  <div class="videoShake" data-starttime="17"></div>
+
+  <p class="lachen"
+     data-starttime="16"
+     data-stoptime="21"
+     data-positionTop="350"
+     data-positionHorizontalCentre="-300">
+  </p>
+  
+  <p class="jippie"
+     data-starttime="38"
+     data-stoptime="45"
+     data-effectIn="fadeIn"
+     data-effectOut="fadeOut"
+     data-positionTop="250"
+     data-positionHorizontalCentre="100">
+  </p>
+  
+  <p class="roundbox uphostery"
+     data-starttime="71.6"
+     data-stoptime="73"
+     data-effectIn="bounceInDown"
+     data-effectOut="bounceOutUp"
+     data-positionTop="220"
+     data-positionHorizontalCentre="-160">
+      GO!!!
+  </p>
+
+  <p class="cover"
+     data-starttime="76"
+     data-stoptime="82"
+     data-effectIn="fadeIn"
+     data-effectOut="fadeOut">
+      Ok, that's about it, folks!! Enjoy the rest of the video without comments :-)
+  </p>
+</div>
+
+<script>
+    var video = {
+        ID: "Ow0lr63y4Mw",
+        start: 6,
+        stop: 364
+    };
+</script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://rlemon.github.io/Notifier.js/javascripts/Notifier.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
