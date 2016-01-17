@@ -1,7 +1,7 @@
 console.log('project.js loaded');
 var videoId = 'sGbxmsDFVnE'
 var i = 0;
-var stop = 3;
+var stop = 30;
 var parsedComments = [];
 
 function getComments(nextPage) {
@@ -41,6 +41,7 @@ function getCommentsRepeated(nextPage) {
   });
 
   console.log(parsedComments);
+  console.log(JSON.stringify(parsedComments));
 }
 }
 
