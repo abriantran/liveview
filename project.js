@@ -1,8 +1,21 @@
 console.log('project.js loaded');
 var videoId = 'sGbxmsDFVnE'
 var i = 0;
-var stop = 30;
+var j = 0;
+var stop = 3;
 var parsedComments = [];
+
+function displayComments() {
+  var time = 0;
+  setInterval(function () {
+      console.log(++time);
+      parsedComments.forEach( function(comment) {
+        if (time == comment.seconds) {
+          console.log(comment.text);
+        }
+      });
+  }, 1000);
+}
 
 function getComments(nextPage) {
     gapi.client.youtube.commentThreads.list({'part': 'snippet', 'videoId': videoId, 'maxResults': 100, 'pageToken': nextPage}).then(function(resp) {
@@ -42,6 +55,7 @@ function getCommentsRepeated(nextPage) {
 
   console.log(parsedComments);
   console.log(JSON.stringify(parsedComments));
+  displayComments();
 }
 }
 
