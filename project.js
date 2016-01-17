@@ -4,6 +4,8 @@ var i = 0;
 var j = 0;
 var stop = 5;
 var parsedComments = [];
+var parent = document.getElementById("parent");
+var child = document.getElementById("commentsFrame")
 
 function displayComments() {
   var time = 0;
@@ -13,6 +15,7 @@ function displayComments() {
         if (time == comment.seconds) {
           console.log(comment.text);
           document.getElementById('commentsFrame').innerHTML = comment.text;
+          //parent.removeChild(child);
         }
       });
   }, 1000);
