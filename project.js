@@ -28,6 +28,18 @@ function getCommentsRepeated(nextPage) {
 });
 
 } else {
+  // Sort by time.
+  parsedComments.sort(function (a, b) {
+    if (a.seconds > b.seconds) {
+      return 1;
+    }
+    if (a.seconds < b.seconds) {
+      return -1;
+    }
+    // a must be equal to b
+    return 0;
+  });
+
   console.log(parsedComments);
 }
 }
@@ -38,13 +50,14 @@ function filterComments(commentArray) {
             var comment = entry.snippet.topLevelComment.snippet.textDisplay;
             var isMatch = comment.match(/t=\d+m\d\ds/);
             if (isMatch) {
-                var time = isMatch[0];
-                var timeSplit = time.split(/\D+/);
-                var seconds = parseInt(timeSplit[1]) * 60 + parseInt(timeSplit[2]);
-                var parsedComment = {
-                  time: isMatch[0],
-                  seconds: seconds
-                };
+              // Convert time to seconds.
+              var time = isMatch[0];
+              var timeSplit = time.split(/\D+/);
+              var seconds = parseInt(timeSplit[1]) * 60 + parseInt(timeSplit[2]);
+              var parsedComment = {
+                text: isMatch.input,
+                seconds: seconds
+              };
                 //console.log(parsedComment);
                 parsedComments.push(parsedComment);
             }
