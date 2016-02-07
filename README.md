@@ -6,7 +6,7 @@ Youtube dynamic comment experience
 
 Before running this project, create a secrets.json file to use your API key. It will take the format:
 
-    secret = '{"api_key" : "YOUR_API_KEY"}'
+    secrets = '{"api_key" : "YOUR_API_KEY"}'
 
 Instructions [here][1] for creating API keys.
 
